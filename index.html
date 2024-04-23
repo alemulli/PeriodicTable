@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- Alpine -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <!-- Data -->
+    <script src="data.js"></script>
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Articulat CF fontface -->
+    <link rel="stylesheet" href="https://use.typekit.net/qsl6luv.css">
+
+
+</head>
+
+<!-- Style in CSS instead of Tailwind for overall Periodic Table Grid -->
+
+<!-- style="display: grid;
+grid-template-columns: repeat(3, 78px) 16px repeat(15, 78px);
+grid-template-rows: repeat(7, 78px) 61px repeat(2, 78px);
+grid-column-gap: 6px;
+grid-row-gap: 6px;" -->
+
+<!-- Style in CSS instead of Tailwind for individual Elements on the Table -->
+
+<!-- style-="
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    " -->
+
+<body x-data="PeriodicTable()" class="w-full">
+    <div class="max-w-[1815px] mx-auto pl-[41px] 2xl:px-1 py-[38px]" style="overflow-x:auto; overflow-y:hidden; height:fit-content;">
+            <div  class="grid grid-cols-[repeat(3,44px)_8px_repeat(15,44px)] md:grid-cols-[repeat(3,78px)_16px_repeat(15,78px)] grid-rows-[repeat(7,44px)_30px_repeat(2,44px)] md:grid-rows-[repeat(7,78px)_61px_repeat(2,78px)] gap-x-1 gap-y-1 md:gap-x-1.5 md:gap-y-1.5 mx-auto w-fit h-fit">
+                <template x-for="element in section_1">
+                    <div :class="element.grid_position + ' overflow-visible flex items-center justify-center'">
+                        <div :class="' bg-['+section_1_info.group_color+'] ' + card_classes">
+                            <p class="max-md:mb-[-2px] text-[10px] md:text-base !leading-[1] self-start" x-text="element.number"></p>
+                            <p class="text-[24px] md:text-[40px] font-semibold !leading-[1]" x-text="element.symbol"></p>
+                            <p class="text-[10px] md:text-base !leading-[1]" x-text="element.name"></p>
+                        </div>
+                    </div>
+                </template>
+                <template x-for="element in section_2">
+                    <div :class="element.grid_position + ' overflow-visible flex items-center justify-center'">
+                        <div :class="' bg-['+section_2_info.group_color+'] ' + card_classes">
+                            <p class="max-md:mb-[-2px] text-[10px] md:text-base !leading-[1] self-start" x-text="element.number"></p>
+                            <p class="text-[24px] md:text-[40px] font-semibold !leading-[1]" x-text="element.symbol"></p>
+                            <p class="text-[10px] md:text-base !leading-[1]" x-text="element.name"></p>
+                        </div>
+                    </div>
+                </template>
+                <template x-for="element in section_3">
+                    <div :class="element.grid_position + ' overflow-visible flex items-center justify-center'">
+                        <div :class="' bg-['+section_3_info.group_color+'] ' + card_classes">
+                            <p class="max-md:mb-[-2px] text-[10px] md:text-base !leading-[1] self-start" x-text="element.number"></p>
+                            <p class="text-[24px] md:text-[40px] font-semibold !leading-[1]" x-text="element.symbol"></p>
+                            <p class="text-[10px] md:text-base !leading-[1]" x-text="element.name"></p>
+                        </div>
+                    </div>
+                </template>
+                <template x-for="element in section_4">
+                    <div :class="element.grid_position + ' overflow-visible flex items-center justify-center'">
+                        <div :class="' bg-['+section_4_info.group_color+'] !text-black ' + card_classes">
+                            <p class="max-md:mb-[-2px] text-[10px] md:text-base !leading-[1] self-start" x-text="element.number"></p>
+                            <p class="text-[24px] md:text-[40px] font-semibold !leading-[1]" x-text="element.symbol"></p>
+                            <p class="text-[10px] md:text-base !leading-[1]" x-text="element.name"></p>
+                        </div>
+                    </div>
+                </template>
+                <template x-for="element in section_5">
+                    <div :class="element.grid_position + ' overflow-visible flex items-center justify-center'">
+                        <div :class="' bg-['+section_5_info.group_color+'] ' + card_classes">
+                            <p class="max-md:mb-[-2px] text-[10px] md:text-base !leading-[1] self-start" x-text="element.number"></p>
+                            <p class="text-[24px] md:text-[40px] font-semibold !leading-[1]" x-text="element.symbol"></p>
+                            <p class="text-[10px] md:text-base !leading-[1]" x-text="element.name"></p>
+                        </div>
+                    </div>
+                </template>
+                <template x-for="element in section_6">
+                    <div :class="element.grid_position + ' overflow-visible flex items-center justify-center'">
+                        <div :class="' bg-['+section_6_info.group_color+'] ' + card_classes">
+                            <p class="max-md:mb-[-2px] text-[10px] md:text-base !leading-[1] self-start" x-text="element.number"></p>
+                            <p class="text-[24px] md:text-[40px] font-semibold !leading-[1]" x-text="element.symbol"></p>
+                            <p class="text-[10px] md:text-base !leading-[1]" x-text="element.name"></p>
+                        </div>
+                    </div>
+                </template>
+                <template x-for="element in section_7">
+                    <div :class="element.grid_position + ' overflow-visible flex items-center justify-center'">
+                        <div :class="' bg-['+section_7_info.group_color+'] ' + card_classes">
+                            <p class="max-md:mb-[-2px] text-[10px] md:text-base !leading-[1] self-start" x-text="element.number"></p>
+                            <p class="text-[24px] md:text-[40px] font-semibold !leading-[1]" x-text="element.symbol"></p>
+                            <p class="text-[10px] md:text-base !leading-[1]" x-text="element.name"></p>
+                        </div>
+                    </div>
+                </template>
+                <template x-for="element in section_8">
+                    <div :class="element.grid_position + ' overflow-visible flex items-center justify-center'">
+                        <div :class="' bg-['+section_8_info.group_color+'] ' + card_classes">
+                            <p class="max-md:mb-[-2px] text-[10px] md:text-base !leading-[1] self-start" x-text="element.number"></p>
+                            <p class="text-[24px] md:text-[40px] font-semibold !leading-[1]" x-text="element.symbol"></p>
+                            <p class="text-[10px] md:text-base !leading-[1]" x-text="element.name"></p>
+                        </div>
+                    </div>
+                </template>
+                <template x-for="element in section_9">
+                    <div :class="element.grid_position + ' overflow-visible flex items-center justify-center'">
+                        <div :class="' bg-['+section_9_info.group_color+'] ' + card_classes">
+                            <p class="max-md:mb-[-2px] text-[10px] md:text-base !leading-[1] self-start" x-text="element.number"></p>
+                            <p class="text-[24px] md:text-[40px] font-semibold !leading-[1]" x-text="element.symbol"></p>
+                            <p class="text-[10px] md:text-base !leading-[1]" x-text="element.name"></p>
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </div>
+        <div class="max-w-[1815px] mx-auto px-[41px] xl:px-1 flex flex-row flex-wrap items-center justify-center gap-x-[38px] gap-y-2 pt-2 pb-5">
+            <div class="flex flex-row w-fit flex-no-wrap gap-x-3 items-center"><div class="w-[18px] h-[18px] border border-[#707070] rounded-full" :class="' bg-['+section_1_info.group_color+'] '"></div><p x-text="section_1_info.group_name"></p></div>
+            <div class="flex flex-row w-fit flex-no-wrap gap-x-3 items-center"><div class="w-[18px] h-[18px] border border-[#707070] rounded-full" :class="' bg-['+section_2_info.group_color+'] '"></div><p x-text="section_2_info.group_name"></p></div>
+            <div class="flex flex-row w-fit flex-no-wrap gap-x-3 items-center"><div class="w-[18px] h-[18px] border border-[#707070] rounded-full" :class="' bg-['+section_3_info.group_color+'] '"></div><p x-text="section_3_info.group_name"></p></div>
+            <div class="flex flex-row w-fit flex-no-wrap gap-x-3 items-center"><div class="w-[18px] h-[18px] border border-[#707070] rounded-full" :class="' bg-['+section_4_info.group_color+'] '"></div><p x-text="section_4_info.group_name"></p></div>
+            <div class="flex flex-row w-fit flex-no-wrap gap-x-3 items-center"><div class="w-[18px] h-[18px] border border-[#707070] rounded-full" :class="' bg-['+section_5_info.group_color+'] '"></div><p x-text="section_5_info.group_name"></p></div>
+            <div class="flex flex-row w-fit flex-no-wrap gap-x-3 items-center"><div class="w-[18px] h-[18px] border border-[#707070] rounded-full" :class="' bg-['+section_6_info.group_color+'] '"></div><p x-text="section_6_info.group_name"></p></div>
+            <div class="flex flex-row w-fit flex-no-wrap gap-x-3 items-center"><div class="w-[18px] h-[18px] border border-[#707070] rounded-full" :class="' bg-['+section_7_info.group_color+'] '"></div><p x-text="section_7_info.group_name"></p></div>
+            <div class="flex flex-row w-fit flex-no-wrap gap-x-3 items-center"><div class="w-[18px] h-[18px] border border-[#707070] rounded-full" :class="' bg-['+section_8_info.group_color+'] '"></div><p x-text="section_8_info.group_name"></p></div>
+            <div class="flex flex-row w-fit flex-no-wrap gap-x-3 items-center"><div class="w-[18px] h-[18px] border border-[#707070] rounded-full" :class="' bg-['+section_9_info.group_color+'] '"></div><p x-text="section_9_info.group_name"></p></div>
+        </div>
+</body>
+<style>
+    body {
+        font-family: 'articulat-cf', sans-serif;
+    }
+</style>
+</html>
