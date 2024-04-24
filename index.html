@@ -40,115 +40,39 @@ grid-row-gap: 6px;" -->
 <body x-data="PeriodicTable()" class="w-full">
     <div class="max-w-[1815px] mx-auto pl-[41px] 2xl:px-1 py-[38px]" style="overflow-x:auto; overflow-y:hidden; height:fit-content;">
             <div  class="grid grid-cols-[repeat(3,44px)_8px_repeat(15,44px)] md:grid-cols-[repeat(3,78px)_16px_repeat(15,78px)] grid-rows-[repeat(7,44px)_30px_repeat(2,44px)] md:grid-rows-[repeat(7,78px)_61px_repeat(2,78px)] gap-x-1 gap-y-1 md:gap-x-1.5 md:gap-y-1.5 mx-auto w-fit h-fit">
-                <template x-for="element in section_1">
-                    <div :class="element.grid_position + ' overflow-visible flex items-center justify-center'" x-data="{ modalOpen: false }" x-on:keydown.escape.window="modalOpen = false"  x-on:click="modalOpen = true">
-                        <div :class="' bg-['+section_1_info.group_color+'] ' + card_classes">
-                            <p class="max-md:mb-[-2px] text-[10px] md:text-base !leading-[1] self-start" x-text="element.number"></p>
-                            <p class="text-[24px] md:text-[40px] font-semibold !leading-[1]" x-text="element.symbol"></p>
-                            <p class="text-[10px] md:text-base !leading-[1]" x-text="element.name"></p>
-                        </div>
-                        <template x-teleport="body">
-                            <div x-show="modalOpen" class="fixed top-0 left-0 z-[99] flex items-center justify-center w-screen h-screen" x-cloak>
-                                <div x-show="modalOpen" x-transition:enter="ease-out duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="ease-in duration-300" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" x-on:click="modalOpen = false" class="absolute inset-0 w-full h-full bg-black bg-opacity-80 backdrop-blur-md"></div>
-                                <div x-show="modalOpen" x-transition:enter="ease-out duration-300" x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100" x-transition:leave="ease-in duration-200" x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-90" class="relative flex flex-col items-center justify-center gap-[5px] max-w-[500px] w-full mx-[41px] rounded-[5px]" :class="' bg-['+section_1_info.group_color+'] '">
-                                    <div class="w-full h-[308px] sm:h-[425px] bg-black flex items-center justify-center overflow-hidden"> <p class="text-white text-[89px] !leading-[1] font-semibold" x-text="element.symbol"></p></div>
-                                    <div class="w-full px-[34px] sm:px-8 py-7 flex flex-col items-center justify-center text-white">
-                                        <p class="text-[28px] !leading-[1.3] mb-5 font-semibold" x-text="element.name"></p>
-                                        <p class="text-[18px] !leading-[1.4] mb-5 text-center">More data will go here!</p>
-                                        <p class="text-[89px] !leading-[1] font-semibold" x-text="element.number"></p>
-                                    </div>
-                                    
-                                        <svg x-on:click="modalOpen = false" class=" absolute top-3 right-[18px] w-[25px] h-[25px] cursor-pointer" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 384 512" fill="white"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/></svg>
-                                    
-                                </div>
+                <template x-for="section in sections">
+                    <template x-for="element in section.elements">
+                        <div :class="element.grid_position + ' overflow-visible flex items-center justify-center'" x-data="{ modalOpen: false }" x-on:keydown.escape.window="modalOpen = false"  x-on:click="modalOpen = true">
+                            <div :class="' bg-['+section.info.group_color+'] ' + card_classes">
+                                <p class="max-md:mb-[-2px] text-[10px] md:text-base !leading-[1] self-start" x-text="element.number"></p>
+                                <p class="text-[24px] md:text-[40px] font-semibold !leading-[1]" x-text="element.symbol"></p>
+                                <p class="text-[10px] md:text-base !leading-[1]" x-text="element.name"></p>
                             </div>
-                        </template>
-                    </div>
-                </template>
-                <template x-for="element in section_2">
-                    <div :class="element.grid_position + ' overflow-visible flex items-center justify-center'">
-                        <div :class="' bg-['+section_2_info.group_color+'] ' + card_classes">
-                            <p class="max-md:mb-[-2px] text-[10px] md:text-base !leading-[1] self-start" x-text="element.number"></p>
-                            <p class="text-[24px] md:text-[40px] font-semibold !leading-[1]" x-text="element.symbol"></p>
-                            <p class="text-[10px] md:text-base !leading-[1]" x-text="element.name"></p>
+                            <template x-teleport="body">
+                                <div x-show="modalOpen" class="fixed top-0 left-0 z-[99] flex items-center justify-center w-screen h-screen" x-cloak>
+                                    <div x-show="modalOpen" x-transition:enter="ease-out duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="ease-in duration-300" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" x-on:click="modalOpen = false" class="absolute inset-0 w-full h-full bg-black bg-opacity-80 backdrop-blur-md"></div>
+                                    <div x-show="modalOpen" x-transition:enter="ease-out duration-300" x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100" x-transition:leave="ease-in duration-200" x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-90" class="relative flex flex-col items-center justify-center gap-[5px] max-w-[500px] w-full mx-[41px] rounded-[5px]" :class="' bg-['+section.info.group_color+'] '">
+                                        <div class="w-full h-[308px] sm:h-[425px] bg-black flex items-center justify-center overflow-hidden"> <p class="text-white text-[89px] !leading-[1] font-semibold" x-text="element.symbol"></p></div>
+                                        <div class="w-full px-[34px] sm:px-8 py-7 flex flex-col items-center justify-center text-white">
+                                            <p class="text-[28px] !leading-[1.3] mb-5 font-semibold" x-text="element.name"></p>
+                                            <p class="text-[18px] !leading-[1.4] mb-5 text-center">More data will go here!</p>
+                                            <p class="text-[89px] !leading-[1] font-semibold" x-text="element.number"></p>
+                                        </div>
+                                        
+                                            <svg x-on:click="modalOpen = false" class=" absolute top-3 right-[18px] w-[25px] h-[25px] cursor-pointer" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 384 512" fill="white"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/></svg>
+                                        
+                                    </div>
+                                </div>
+                            </template>
                         </div>
-                    </div>
-                </template>
-                <template x-for="element in section_3">
-                    <div :class="element.grid_position + ' overflow-visible flex items-center justify-center'">
-                        <div :class="' bg-['+section_3_info.group_color+'] ' + card_classes">
-                            <p class="max-md:mb-[-2px] text-[10px] md:text-base !leading-[1] self-start" x-text="element.number"></p>
-                            <p class="text-[24px] md:text-[40px] font-semibold !leading-[1]" x-text="element.symbol"></p>
-                            <p class="text-[10px] md:text-base !leading-[1]" x-text="element.name"></p>
-                        </div>
-                    </div>
-                </template>
-                <template x-for="element in section_4">
-                    <div :class="element.grid_position + ' overflow-visible flex items-center justify-center'">
-                        <div :class="' bg-['+section_4_info.group_color+'] !text-black ' + card_classes">
-                            <p class="max-md:mb-[-2px] text-[10px] md:text-base !leading-[1] self-start" x-text="element.number"></p>
-                            <p class="text-[24px] md:text-[40px] font-semibold !leading-[1]" x-text="element.symbol"></p>
-                            <p class="text-[10px] md:text-base !leading-[1]" x-text="element.name"></p>
-                        </div>
-                    </div>
-                </template>
-                <template x-for="element in section_5">
-                    <div :class="element.grid_position + ' overflow-visible flex items-center justify-center'">
-                        <div :class="' bg-['+section_5_info.group_color+'] ' + card_classes">
-                            <p class="max-md:mb-[-2px] text-[10px] md:text-base !leading-[1] self-start" x-text="element.number"></p>
-                            <p class="text-[24px] md:text-[40px] font-semibold !leading-[1]" x-text="element.symbol"></p>
-                            <p class="text-[10px] md:text-base !leading-[1]" x-text="element.name"></p>
-                        </div>
-                    </div>
-                </template>
-                <template x-for="element in section_6">
-                    <div :class="element.grid_position + ' overflow-visible flex items-center justify-center'">
-                        <div :class="' bg-['+section_6_info.group_color+'] ' + card_classes">
-                            <p class="max-md:mb-[-2px] text-[10px] md:text-base !leading-[1] self-start" x-text="element.number"></p>
-                            <p class="text-[24px] md:text-[40px] font-semibold !leading-[1]" x-text="element.symbol"></p>
-                            <p class="text-[10px] md:text-base !leading-[1]" x-text="element.name"></p>
-                        </div>
-                    </div>
-                </template>
-                <template x-for="element in section_7">
-                    <div :class="element.grid_position + ' overflow-visible flex items-center justify-center'">
-                        <div :class="' bg-['+section_7_info.group_color+'] ' + card_classes">
-                            <p class="max-md:mb-[-2px] text-[10px] md:text-base !leading-[1] self-start" x-text="element.number"></p>
-                            <p class="text-[24px] md:text-[40px] font-semibold !leading-[1]" x-text="element.symbol"></p>
-                            <p class="text-[10px] md:text-base !leading-[1]" x-text="element.name"></p>
-                        </div>
-                    </div>
-                </template>
-                <template x-for="element in section_8">
-                    <div :class="element.grid_position + ' overflow-visible flex items-center justify-center'">
-                        <div :class="' bg-['+section_8_info.group_color+'] ' + card_classes">
-                            <p class="max-md:mb-[-2px] text-[10px] md:text-base !leading-[1] self-start" x-text="element.number"></p>
-                            <p class="text-[24px] md:text-[40px] font-semibold !leading-[1]" x-text="element.symbol"></p>
-                            <p class="text-[10px] md:text-base !leading-[1]" x-text="element.name"></p>
-                        </div>
-                    </div>
-                </template>
-                <template x-for="element in section_9">
-                    <div :class="element.grid_position + ' overflow-visible flex items-center justify-center'">
-                        <div :class="' bg-['+section_9_info.group_color+'] ' + card_classes">
-                            <p class="max-md:mb-[-2px] text-[10px] md:text-base !leading-[1] self-start" x-text="element.number"></p>
-                            <p class="text-[24px] md:text-[40px] font-semibold !leading-[1]" x-text="element.symbol"></p>
-                            <p class="text-[10px] md:text-base !leading-[1]" x-text="element.name"></p>
-                        </div>
-                    </div>
+                    </template>
                 </template>
             </div>
         </div>
         <div class="max-w-[1815px] mx-auto px-[41px] xl:px-1 flex flex-row flex-wrap items-center justify-center gap-x-[38px] gap-y-2 pt-2 pb-5">
-            <div class="flex flex-row w-fit flex-no-wrap gap-x-3 items-center"><div class="w-[18px] h-[18px] border border-[#707070] rounded-full" :class="' bg-['+section_1_info.group_color+'] '"></div><p x-text="section_1_info.group_name"></p></div>
-            <div class="flex flex-row w-fit flex-no-wrap gap-x-3 items-center"><div class="w-[18px] h-[18px] border border-[#707070] rounded-full" :class="' bg-['+section_2_info.group_color+'] '"></div><p x-text="section_2_info.group_name"></p></div>
-            <div class="flex flex-row w-fit flex-no-wrap gap-x-3 items-center"><div class="w-[18px] h-[18px] border border-[#707070] rounded-full" :class="' bg-['+section_3_info.group_color+'] '"></div><p x-text="section_3_info.group_name"></p></div>
-            <div class="flex flex-row w-fit flex-no-wrap gap-x-3 items-center"><div class="w-[18px] h-[18px] border border-[#707070] rounded-full" :class="' bg-['+section_4_info.group_color+'] '"></div><p x-text="section_4_info.group_name"></p></div>
-            <div class="flex flex-row w-fit flex-no-wrap gap-x-3 items-center"><div class="w-[18px] h-[18px] border border-[#707070] rounded-full" :class="' bg-['+section_5_info.group_color+'] '"></div><p x-text="section_5_info.group_name"></p></div>
-            <div class="flex flex-row w-fit flex-no-wrap gap-x-3 items-center"><div class="w-[18px] h-[18px] border border-[#707070] rounded-full" :class="' bg-['+section_6_info.group_color+'] '"></div><p x-text="section_6_info.group_name"></p></div>
-            <div class="flex flex-row w-fit flex-no-wrap gap-x-3 items-center"><div class="w-[18px] h-[18px] border border-[#707070] rounded-full" :class="' bg-['+section_7_info.group_color+'] '"></div><p x-text="section_7_info.group_name"></p></div>
-            <div class="flex flex-row w-fit flex-no-wrap gap-x-3 items-center"><div class="w-[18px] h-[18px] border border-[#707070] rounded-full" :class="' bg-['+section_8_info.group_color+'] '"></div><p x-text="section_8_info.group_name"></p></div>
-            <div class="flex flex-row w-fit flex-no-wrap gap-x-3 items-center"><div class="w-[18px] h-[18px] border border-[#707070] rounded-full" :class="' bg-['+section_9_info.group_color+'] '"></div><p x-text="section_9_info.group_name"></p></div>
+            <template x-for="section in sections">
+                <div class="flex flex-row w-fit flex-no-wrap gap-x-3 items-center"><div class="w-[18px] h-[18px] border border-[#707070] rounded-full" :class="' bg-['+section.info.group_color+'] '"></div><p x-text="section.info.group_name"></p></div>
+            </template>
         </div>
 </body>
 <style>
