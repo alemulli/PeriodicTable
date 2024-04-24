@@ -44,7 +44,7 @@ grid-row-gap: 6px;" -->
                     <template x-for="element in section.elements">
                         <div :class="element.grid_position + ' overflow-visible flex items-center justify-center'" x-data="{ modalOpen: false }" x-on:keydown.escape.window="modalOpen = false"  x-on:click="modalOpen = true">
                             <div :class="' bg-['+section.info.group_color+'] ' + card_classes">
-                                <p class="max-md:mb-[-2px] text-[10px] md:text-base !leading-[1] self-start" x-text="element.number"></p>
+                                <p class="mb-[-2px] text-[10px] md:text-base !leading-[1] self-start" x-text="element.number"></p>
                                 <p class="text-[24px] md:text-[40px] font-semibold !leading-[1]" x-text="element.symbol"></p>
                                 <p class="text-[10px] md:text-base !leading-[1]" x-text="element.name"></p>
                             </div>
