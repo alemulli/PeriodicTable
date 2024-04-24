@@ -3,7 +3,11 @@ window.PeriodicTable = function () {
         card_classes: 'text-white p-px md:p-1 flex flex-col items-center justify-between rounded-[5px] border-[0.5px] border-[#707070] hover:scale-110 w-full h-full transition-transform duration-300 ease-out',
         sections:{
             section_1 : {
-                info: { group_name: "Alkali Metals", group_color: "#BE3927" },
+                info: { 
+                        group_name: "Alkali Metals", 
+                        group_color: "#BE3927", 
+                        section_specific_card_classes: '', 
+                    },
                 elements: [
                     { symbol: "Li", number: "3", name: "Lithium", grid_position: "col-start-1 col-end-2 row-start-2 row-end-3" },
                     { symbol: "Na", number: "11", name: "Sodium", grid_position: "col-start-1 col-end-2 row-start-3 row-end-4" },
@@ -17,6 +21,7 @@ window.PeriodicTable = function () {
                 info: {
                     group_name: "Alkaline Earth Metals",
                     group_color: "#8AC64C",
+                    section_specific_card_classes: '', 
                 },
                 elements: [
                     { symbol: "Be", number: "4", name: "Beryllium", grid_position: "col-start-2 col-end-3 row-start-2 row-end-3" },
@@ -28,7 +33,11 @@ window.PeriodicTable = function () {
                 ],
             },
             section_3 : {
-                info: { group_name: "Transition Metals", group_color: "#148690" },
+                info: { 
+                    group_name: "Transition Metals", 
+                    group_color: "#148690",
+                    section_specific_card_classes: '',  
+                },
                 elements: [
                     { symbol: "Sc", number: "21", name: "Scandium", grid_position: "col-start-3 col-end-4 row-start-4 row-end-5" },
                     { symbol: "Ti", number: "22", name: "Titanium", grid_position: "col-start-5 col-end-6 row-start-4 row-end-5" },
@@ -74,6 +83,7 @@ window.PeriodicTable = function () {
                 info: {
                     group_name: "Post-Transition Metals",
                     group_color: "#DCE0CC",
+                    section_specific_card_classes: '!text-black', 
                 },
                 elements: [
                     { symbol: "Al", number: "13", name: "Aluminum", grid_position: "col-start-[14] col-end-[15] row-start-3 row-end-4" },
@@ -90,7 +100,11 @@ window.PeriodicTable = function () {
                 ],
             },
             section_5 : {
-                info: { group_name: "Metalloids", group_color: "#4C6CA5" },
+                info: { 
+                    group_name: "Metalloids", 
+                    group_color: "#4C6CA5", 
+                    section_specific_card_classes: '', 
+                },
                 elements: [
                     { symbol: "B", number: "5", name: "Boron", grid_position: "col-start-[14] col-end-[15] row-start-2 row-end-3" },
                     { symbol: "Si", number: "14", name: "Silicon", grid_position: "col-start-[15] col-end-[16] row-start-3 row-end-4" },
@@ -102,7 +116,11 @@ window.PeriodicTable = function () {
                 ],
             },
             section_6 : {
-                info: { group_name: "Nonmetals", group_color: "#D35A28" },
+                info: { 
+                    group_name: "Nonmetals", 
+                    group_color: "#D35A28", 
+                    section_specific_card_classes: '', 
+                },
                 elements: [
                     { symbol: "H", number: "1", name: "Hydrogen", grid_position: "col-start-1 col-end-2 row-start-1 row-end-2" },
                     { symbol: "C", number: "6", name: "Carbon", grid_position: "col-start-[15] col-end-[16] row-start-2 row-end-3" },
@@ -120,7 +138,11 @@ window.PeriodicTable = function () {
                 ],
             },
             section_7 : {
-                info: { group_name: "Noble Gasses", group_color: "#1B8490" },
+                info: { 
+                    group_name: "Noble Gasses", 
+                    group_color: "#1B8490", 
+                    section_specific_card_classes: '', 
+                },
                 elements: [
                     { symbol: "He", number: "2", name: "Helium", grid_position: "col-start-[19] col-end-[20] row-start-1 row-end-2" },
                     { symbol: "Ne", number: "10", name: "Neon", grid_position: "col-start-[19] col-end-[20] row-start-2 row-end-3" },
@@ -132,7 +154,11 @@ window.PeriodicTable = function () {
                 ],
             },
             section_8 : {
-                info: { group_name: "Lanthanoids", group_color: "#426D3E" },
+                info: { 
+                    group_name: "Lanthanoids", 
+                    group_color: "#426D3E", 
+                    section_specific_card_classes: '', 
+                },
                 elements: [
                     // { symbol: "La", number: "57", name: "Lanthanum", grid_position: "col-start-5 col-end-6 row-start-9 row-end-10" },
                     // { symbol: "Ce", number: "58", name: "Cerium", grid_position: "col-start-6 col-end-7 row-start-9 row-end-10" },
@@ -169,7 +195,11 @@ window.PeriodicTable = function () {
                 ],
             },
             info : {
-                info: { group_name: "Actinoids", group_color: "#A33302" },
+                info: { 
+                    group_name: "Actinoids", 
+                    group_color: "#A33302", 
+                    section_specific_card_classes: '', 
+                },
                 elements: [
                     // { symbol: "Ac", number: "89", name: "Actinium", grid_position: "col-start-5 col-end-6 row-start-10 row-end-11" },
                     // { symbol: "Th", number: "90", name: "Thorium", grid_position: "col-start-6 col-end-7 row-start-10 row-end-11" },
