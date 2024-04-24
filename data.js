@@ -194,7 +194,7 @@ window.PeriodicTable = function () {
                     { symbol: "Lu", number: "71", name: "Lutetium", grid_position: "col-start-[18] col-end-[19] row-start-9 row-end-10" },
                 ],
             },
-            info : {
+            section_9 : {
                 info: { 
                     group_name: "Actinoids", 
                     group_color: "#A33302", 
