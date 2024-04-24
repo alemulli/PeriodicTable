@@ -135,7 +135,7 @@ window.PeriodicTable = function () {
             // { symbol: "Lu", number: "71", name: "Lutetium", grid_position: "col-start-[19] col-end-[20] row-start-9 row-end-10" },
 
             // ALT LAYOUT
-            { symbol: "La", number: "57", name: "Lanthanum", grid_position: "col-start-3 col-end-4 row-start-7 row-end-8" },
+            { symbol: "La", number: "57", name: "Lanthanum", grid_position: "col-start-3 col-end-4 row-start-6 row-end-7" },
             { symbol: "Ce", number: "58", name: "Cerium", grid_position: "col-start-5 col-end-6 row-start-9 row-end-10" },
             { symbol: "Pr", number: "59", name: "Praseodymium", grid_position: "col-start-6 col-end-7 row-start-9 row-end-10" },
             { symbol: "Nd", number: "60", name: "Neodymium", grid_position: "col-start-7 col-end-8 row-start-9 row-end-10" },
@@ -170,7 +170,7 @@ window.PeriodicTable = function () {
             // { symbol: "Lr", number: "103", name: "Lawrencium", grid_position: "col-start-[19] col-end-[20] row-start-10 row-end-11" },
 
             // ALT LAYOUT
-            { symbol: "Ac", number: "89", name: "Actinium", grid_position: "col-start-3 col-end-4 row-start-6 row-end-7" },
+            { symbol: "Ac", number: "89", name: "Actinium", grid_position: "col-start-3 col-end-4 row-start-7 row-end-8" },
             { symbol: "Th", number: "90", name: "Thorium", grid_position: "col-start-5 col-end-6 row-start-10 row-end-11" },
             { symbol: "Pa", number: "91", name: "Protactinium", grid_position: "col-start-6 col-end-7 row-start-10 row-end-11" },
             { symbol: "U", number: "92", name: "Uranium", grid_position: "col-start-7 col-end-8 row-start-10 row-end-11" },
